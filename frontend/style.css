@@ -1,0 +1,132 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background: #f4f4f4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Chat container */
+.chat-container {
+  width: 360px;
+  height: 640px;
+  background: #fff;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  overflow: hidden;
+}
+
+/* Header */
+.chat-header {
+  background: #9c1c1c;
+  color: #fff;
+  padding: 12px;
+  display: flex;
+  align-items: center;
+}
+
+.back-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.chat-title h3 {
+  font-size: 16px;
+}
+
+.chat-title small {
+  font-size: 12px;
+  color: #f0f0f0;
+}
+
+/* Messages area */
+.chat-messages {
+  flex: 1;
+  padding: 10px;
+  overflow-y: auto;
+  background: #f9f9f9;
+}
+
+/* Chat bubble */
+.message {
+  max-width: 70%;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 8px;
+  font-size: 14px;
+  line-height: 1.4;
+  position: relative;
+}
+
+.message.sent {
+  background: #9c1c1c;
+  color: white;
+  margin-left: auto;
+  border-bottom-right-radius: 0;
+}
+
+.message.received {
+  background: #e6e6e6;
+  color: #000;
+  margin-right: auto;
+  border-bottom-left-radius: 0;
+}
+
+/* Timestamp */
+.message .time {
+  display: block;
+  font-size: 10px;
+  opacity: 0.6;
+  margin-top: 4px;
+  text-align: right;
+}
+
+/* Input area */
+.chat-input {
+  display: flex;
+  padding: 10px;
+  border-top: 1px solid #ddd;
+  background: #fff;
+}
+
+.chat-input input {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 20px;
+  background: #f1f1f1;
+  outline: none;
+}
+
+.chat-input button {
+  margin-left: 8px;
+  background: #9c1c1c;
+  border: none;
+  color: white;
+  font-size: 18px;
+  padding: 10px 14px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* Typing indicator */
+.typing-indicator {
+  font-size: 12px;
+  color: gray;
+  padding: 5px 10px;
+  font-style: italic;
+}

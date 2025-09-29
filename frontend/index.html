@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chat App</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="chat-container">
+    <!-- Header -->
+    <div class="chat-header">
+      <button class="back-btn" onclick="window.history.back()">←</button>
+      <div class="chat-title">
+        <h3>Fun Friday Group</h3>
+        <small>Anonymous ON</small>
+      </div>
+    </div>
+
+    <!-- Messages area -->
+    <div class="chat-messages" id="chat-messages"></div>
+
+    <!-- Typing indicator -->
+    <div id="typingIndicator" class="typing-indicator" style="display:none;">
+      Someone is typing...
+    </div>
+
+    <!-- Typing box -->
+    <div class="chat-input">
+      <input type="text" id="messageInput" placeholder="Type a message..." />
+      <button id="sendBtn">➤</button>
+    </div>
+  </div>
+
+  <!-- ✅ Socket.io + Axios -->
+  <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
