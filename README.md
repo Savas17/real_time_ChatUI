@@ -21,8 +21,8 @@ Setup Instructions
 Clone this repository:
 
 text
-git clone https://github.com/<your-username>/anonymous-chat-ui.git
-cd anonymous-chat-ui
+git clone https://github.com/Savas17/real_time_chatUI.git
+cd real_time_chatUI
 Install backend dependencies:
 
 text
@@ -36,7 +36,8 @@ node server.js
 Open the app in your browser at http://localhost:3000.
 
 Screenshots
-![Chat UI Screenshot](Screenshot-2025-09-29-174 Notes
+<img width="474" height="841" alt="image" src="https://github.com/user-attachments/assets/55ce6ced-38b5-4b5a-af98-7efcf16d0cd4" />
+
 
 This project is based on the UI reference shared via Figma.
 
