@@ -17,11 +17,19 @@ const io = new Server(server, {
 app.use(cors());
 app.use(express.json());
 
-// ✅ Get all messages
+// ✅ Get all messages (formatted)
 app.get("/messages", async (req, res) => {
   try {
-    const [rows] = await db.query("SELECT * FROM messages ORDER BY timestamp ASC");
-    res.json(rows);
+    const [rows] = await db.query(
+      "SELECT id, username, message, timestamp FROM messages ORDER BY timestamp ASC"
+    );
+    res.json(
+      rows.map((msg) => ({
+        username: msg.username,
+        message: msg.message,
+        timestamp: msg.timestamp,
+      }))
+    );
   } catch (err) {
     res.status(500).json({ error: "Failed to fetch messages" });
   }
@@ -30,10 +38,18 @@ app.get("/messages", async (req, res) => {
 io.on("connection", (socket) => {
   console.log("🟢 User connected");
 
-  socket.on("chatMessage", async (text) => {
+  // ✅ Save message with username + message
+  socket.on("chatMessage", async ({ username, message }) => {
     try {
-      await db.query("INSERT INTO messages (text) VALUES (?)", [text]);
-      io.emit("chatMessage", { text });
+      await db.query("INSERT INTO messages (username, message) VALUES (?, ?)", [
+        username,
+        message,
+      ]);
+
+      io.emit("chatMessage", {
+        username,
+        message,
+      });
     } catch (err) {
       console.error("❌ DB insert failed:", err);
     }
@@ -45,4 +61,6 @@ io.on("connection", (socket) => {
 });
 
 const PORT = process.env.PORT || 5000;
-server.listen(PORT, () => console.log(`✅ Server running on http://localhost:${PORT}`));
+server.listen(PORT, () =>
+  console.log(`✅ Server running on http://localhost:${PORT}`)
+);
